@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements Serializable {
+public class Voice implements Serializable {
 
 //    private static final long serialVersionUID = 1L;
 
@@ -21,21 +21,18 @@ public class User implements Serializable {
 //    //微信用户唯一标识
 //    private String openid;
 
-    //姓名
-    private String name;
+    //文件名
+    private String filename;
 
-    //手机号
-    private String phone;
+    //文本内容
+    private String content;
 
-    //性别 0 女 1 男
-    private String sex;
+    //为ai合成的概率
+    private Double isAi;
 
-//    //身份证号
-//    private String idNumber;
+    //为诈骗文本的概率
+    private Double isCheat;
 
-    //头像
-    private String avatar;
-
-    //注册时间
+    //创建时间
     private LocalDateTime createTime;
 }

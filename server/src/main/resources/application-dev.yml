@@ -1,0 +1,20 @@
+zilweney:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: ai_voice_detection
+    username: root
+    password: root
+
+#  alioss:
+#    access-key-id: LTAI5tNsvMmMNGt9BXA6ktce
+#    access-key-secret: OLJDSpKwXJkiKEF6O9ZckjdfV11CvU
+#    endpoint: oss-cn-chengdu.aliyuncs.com
+#    bucket-name: zilweney-web-tlias
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 1
+  # password: 密码
