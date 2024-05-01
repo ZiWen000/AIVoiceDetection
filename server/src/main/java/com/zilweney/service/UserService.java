@@ -1,50 +1,45 @@
 package com.zilweney.service;
 
-import com.sky.dto.EmployeeDTO;
-import com.sky.dto.EmployeeLoginDTO;
-import com.sky.dto.EmployeePageQueryDTO;
-import com.sky.entity.Employee;
-import com.sky.result.PageResult;
+
+import com.zilweney.dto.UserDTO;
+import com.zilweney.dto.UserLoginDTO;
+import com.zilweney.entity.User;
+import com.zilweney.result.PageResult;
+import com.zilweney.vo.UserLoginVO;
 
 public interface UserService {
 
     /**
-     * 员工登录
-     * @param employeeLoginDTO
+     * 用户登录
+     * @param userLoginDTO
      * @return
      */
-    Employee login(EmployeeLoginDTO employeeLoginDTO);
+    User login(UserLoginDTO userLoginDTO);
 
     /**
-     * 新增员工
-     * @param employeeDTO
+     * 新增用户
+     * @param userDTO
      */
-    void save(EmployeeDTO employeeDTO);
+    void save(UserDTO userDTO);
 
-    /**
-     * 员工分页查询
-     * @param employeePageQueryDTO
-     * @return
-     */
-    PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+//    /**
+//     * 员工分页查询
+//     * @param employeePageQueryDTO
+//     * @return
+//     */
+//    PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 
-    /**
-     * 启用禁用员工账号
-     * @param status
-     * @param id
-     */
-    void startOrStop(Integer status, Long id);
 
     /**
      * 根据id查询
      * @param id
      * @return
      */
-    Employee getById(Long id);
+    User getById(Long id);
 
     /**
-     * 编辑员工信息
-     * @param employeeDTO
+     * 编辑用户信息
+     * @param userDTO
      */
-    void update(EmployeeDTO employeeDTO);
+    void update(UserDTO userDTO);
 }

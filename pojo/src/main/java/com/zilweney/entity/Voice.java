@@ -18,6 +18,8 @@ public class Voice implements Serializable {
 
     private Long id;
 
+    private Long userId;
+
 //    //微信用户唯一标识
 //    private String openid;
 

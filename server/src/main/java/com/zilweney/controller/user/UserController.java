@@ -2,11 +2,16 @@ package com.zilweney.controller.user;
 
 import com.zilweney.constant.JwtClaimsConstant;
 
+import com.zilweney.dto.UserDTO;
+import com.zilweney.dto.UserLoginDTO;
+import com.zilweney.entity.User;
 import com.zilweney.properties.JwtProperties;
 import com.zilweney.result.PageResult;
 import com.zilweney.result.Result;
 
+import com.zilweney.service.UserService;
 import com.zilweney.utils.JwtUtil;
+import com.zilweney.vo.UserLoginVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -17,48 +22,48 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 员工管理
+ * 用户管理
  */
 @RestController
 @RequestMapping("/user/user")
 @Slf4j
-@Api(tags = "员工相关接口")
+@Api(tags = "用户相关接口")
 public class UserController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private UserService userService;
     @Autowired
     private JwtProperties jwtProperties;
 
     /**
      * 登录
      *
-     * @param employeeLoginDTO
+     * @param userLoginDTO
      * @return
      */
     @PostMapping("/login")
-    @ApiOperation(value = "员工登录")
-    public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
-        log.info("员工登录：{}", employeeLoginDTO);
+    @ApiOperation(value = "用户登录")
+    public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {
+        log.info("用户登录：{}", userLoginDTO);
 
-        Employee employee = employeeService.login(employeeLoginDTO);
+        User user = userService.login(userLoginDTO);
 
         //登录成功后，生成jwt令牌
         Map<String, Object> claims = new HashMap<>();
-        claims.put(JwtClaimsConstant.EMP_ID, employee.getId());
+        claims.put(JwtClaimsConstant.EMP_ID, user.getId());
         String token = JwtUtil.createJWT(
                 jwtProperties.getAdminSecretKey(),
                 jwtProperties.getAdminTtl(),
                 claims);
 
-        EmployeeLoginVO employeeLoginVO = EmployeeLoginVO.builder()
-                .id(employee.getId())
-                .userName(employee.getUsername())
-                .name(employee.getName())
+        UserLoginVO userLoginVO = UserLoginVO.builder()
+                .id(user.getId())
+                .userName(user.getUsername())
+                .name(user.getName())
                 .token(token)
                 .build();
 
-        return Result.success(employeeLoginVO);
+        return Result.success(userLoginVO);
     }
 
     /**
@@ -67,74 +72,61 @@ public class UserController {
      * @return
      */
     @PostMapping("/logout")
-    @ApiOperation("员工退出")
+    @ApiOperation("用户退出")
     public Result<String> logout() {
         return Result.success();
     }
 
     /**
      *
-     * @param employeeDTO
+     * @param userDTO
      * @return
      */
     @PostMapping
-    @ApiOperation("新增员工")
-    public Result save(@RequestBody EmployeeDTO employeeDTO){
+    @ApiOperation("新增用户")
+    public Result save(@RequestBody UserDTO userDTO){
         System.out.println("当前进程id："+Thread.currentThread().getId());
-        log.info("新增员工:{}",employeeDTO);
-        employeeService.save(employeeDTO);
+        log.info("新增用户:{}",userDTO);
+        userService.save(userDTO);
         return Result.success();
     }
 
-    /**
-     * 员工分页查询
-     * @param employeePageQueryDTO
-     * @return
-     */
-    @GetMapping("/page")
-    @ApiOperation("员工分页查询")
-    public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){//因为是Query类型，所以不是JSON格式，不用加上@RequestBody注解
-        log.info("员工分页查询,参数为:{}",employeePageQueryDTO);
-        PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
-        return Result.success(pageResult);
-    }
+//    /**
+//     * 用户分页查询
+//     * @param employeePageQueryDTO
+//     * @return
+//     */
+//    @GetMapping("/page")
+//    @ApiOperation("用户分页查询")
+//    public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){//因为是Query类型，所以不是JSON格式，不用加上@RequestBody注解
+//        log.info("用户分页查询,参数为:{}",employeePageQueryDTO);
+//        PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
+//        return Result.success(pageResult);
+//    }
+
 
     /**
-     * 启用禁用员工账号
-     * @param status
-     * @param id
-     * @return
-     */
-    @PostMapping("status/{status}")
-    @ApiOperation("启用禁用员工账号")
-    public Result startOrStop(@PathVariable("status") Integer status,Long id ){
-        log.info("启用禁用员工账号:{},{}",status,id);
-        employeeService.startOrStop(status,id);
-        return Result.success();
-    }
-
-    /**
-     * 根据id查询员工信息
+     * 根据id查询用户信息
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    @ApiOperation("根据id查询员工信息")
-    public Result<Employee> getById(@PathVariable Long id){
-        Employee employee = employeeService.getById(id);
-        return Result.success(employee);
+    @ApiOperation("根据id查询用户信息")
+    public Result<User> getById(@PathVariable Long id){
+        User user = userService.getById(id);
+        return Result.success(user);
     }
 
-    /**
-     * 编辑员工信息
-     * @param employeeDTO
-     * @return
-     */
-    @PutMapping
-    @ApiOperation("编辑员工信息")
-    public Result update(@RequestBody EmployeeDTO employeeDTO){
-        log.info("编辑员工信息:{}",employeeDTO);
-        employeeService.update(employeeDTO);
-        return Result.success();
-    }
+//    /**
+//     * 编辑用户信息
+//     * @param employeeDTO
+//     * @return
+//     */
+//    @PutMapping
+//    @ApiOperation("编辑用户信息")
+//    public Result update(@RequestBody EmployeeDTO employeeDTO){
+//        log.info("编辑用户信息:{}",employeeDTO);
+//        employeeService.update(employeeDTO);
+//        return Result.success();
+//    }
 }

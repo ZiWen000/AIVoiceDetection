@@ -59,9 +59,9 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public Docket docket1() {
         log.info("准备生成管理端接口文档...");
         ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("苍穹外卖项目接口文档")
-                .version("2.0")
-                .description("苍穹外卖项目接口文档")
+                .title("AI语音识别项目接口文档")
+                .version("1.0")
+                .description("AI语音识别项目接口文档档")
                 .build();
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .groupName("管理端接口")

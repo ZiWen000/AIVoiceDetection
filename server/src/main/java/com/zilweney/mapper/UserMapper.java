@@ -1,10 +1,11 @@
 package com.zilweney.mapper;
 
 import com.github.pagehelper.Page;
-import com.sky.annotation.AutoFill;
-import com.sky.dto.EmployeePageQueryDTO;
-import com.sky.entity.Employee;
-import com.sky.enumeration.OperationType;
+import com.zilweney.annotation.AutoFill;
+import com.zilweney.enumeration.OperationType;
+import com.zilweney.annotation.AutoFill;
+import com.zilweney.entity.User;
+import com.zilweney.enumeration.OperationType;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -13,42 +14,42 @@ import org.apache.ibatis.annotations.Select;
 public interface UserMapper {
 
     /**
-     * 根据用户名查询员工
+     * 根据用户名查询用户
      * @param username
      * @return
      */
-    @Select("select * from employee where username = #{username}")
-    Employee getByUsername(String username);
+    @Select("select * from user where username = #{username}")
+    User getByUsername(String username);
 
     /**
-     * 插入员工数据
-     * @param employee
+     * 插入用户数据
+     * @param user
      */
     @AutoFill(value = OperationType.INSERT)
-    @Insert("insert into employee (name, username, password, phone, sex, id_number, status, create_time, update_time, create_user, update_user) " +
+    @Insert("insert into user (name, sex, avatar, create_time, update_time, username, password) " +
     "values "+
-    "(#{name},#{username},#{password},#{phone},#{sex},#{idNumber},#{status},#{createTime},#{updateTime},#{createUser},#{updateUser})")
-    void insert(Employee employee);
+    "(#{name},#{username},#{password},#{sex},#{createTime},#{updateTime},#{avatar})")
+    void insert(User user);
 
-    /**
-     * 员工分页查询
-     *
-     * @return
-     */
-    Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+//    /**
+//     * 员工分页查询
+//     *
+//     * @return
+//     */
+//    Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 
     /**
      * 根据主键动态修改属性
-     * @param employee
+     * @param user
      */
     @AutoFill(value = OperationType.UPDATE)
-    void update(Employee employee);
+    void update(User user);
 
     /**
-     * 根据id查询员工
+     * 根据id查询用户
      * @param id
      * @return
      */
-    @Select("select * from employee where id = #{id}")
-    Employee getById(Long id);
+    @Select("select * from user where id = #{id}")
+    User getById(Long id);
 }

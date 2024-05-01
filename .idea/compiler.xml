@@ -11,7 +11,7 @@
         <module name="pojo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="18">
       <module name="AiVoiceDetection" target="1.8" />
       <module name="common" target="1.8" />
       <module name="pojo" target="1.8" />
