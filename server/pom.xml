@@ -7,14 +7,10 @@
         <version>0.0.1-SNAPSHOT</version>
         <artifactId>AiVoiceDetection</artifactId>
     </parent>
-    <packaging>pom</packaging>
     <artifactId>server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>server</name>
     <description>server</description>
-    <properties>
-        <java.version>22</java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>com.zilweney</groupId>
@@ -128,6 +124,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
     </build>
 
 </project>

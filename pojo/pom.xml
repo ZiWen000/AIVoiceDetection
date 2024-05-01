@@ -12,9 +12,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>pojo</name>
     <description>pojo</description>
-    <properties>
-        <java.version>22</java.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
