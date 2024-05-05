@@ -29,5 +29,4 @@ public class UserDTO implements Serializable {
     //性别 0 女 1 男
     private String sex;
 
-    private String avator;
 }

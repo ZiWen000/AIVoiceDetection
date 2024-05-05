@@ -1,116 +1,116 @@
 {
   "groups": [
     {
-      "name": "sky.alioss",
+      "name": "zilweney.alioss",
       "type": "com.zilweney.properties.AliOssProperties",
       "sourceType": "com.zilweney.properties.AliOssProperties"
     },
     {
-      "name": "sky.jwt",
+      "name": "zilweney.jwt",
       "type": "com.zilweney.properties.JwtProperties",
       "sourceType": "com.zilweney.properties.JwtProperties"
     },
     {
-      "name": "sky.wechat",
+      "name": "zilweney.wechat",
       "type": "com.zilweney.properties.WeChatProperties",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     }
   ],
   "properties": [
     {
-      "name": "sky.alioss.access-key-id",
+      "name": "zilweney.alioss.access-key-id",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.AliOssProperties"
     },
     {
-      "name": "sky.alioss.access-key-secret",
+      "name": "zilweney.alioss.access-key-secret",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.AliOssProperties"
     },
     {
-      "name": "sky.alioss.bucket-name",
+      "name": "zilweney.alioss.bucket-name",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.AliOssProperties"
     },
     {
-      "name": "sky.alioss.endpoint",
+      "name": "zilweney.alioss.endpoint",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.AliOssProperties"
     },
     {
-      "name": "sky.jwt.admin-secret-key",
+      "name": "zilweney.jwt.admin-secret-key",
       "type": "java.lang.String",
       "description": "管理端员工生成jwt令牌相关配置",
       "sourceType": "com.zilweney.properties.JwtProperties"
     },
     {
-      "name": "sky.jwt.admin-token-name",
+      "name": "zilweney.jwt.admin-token-name",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.JwtProperties"
     },
     {
-      "name": "sky.jwt.admin-ttl",
+      "name": "zilweney.jwt.admin-ttl",
       "type": "java.lang.Long",
       "sourceType": "com.zilweney.properties.JwtProperties"
     },
     {
-      "name": "sky.jwt.user-secret-key",
+      "name": "zilweney.jwt.user-secret-key",
       "type": "java.lang.String",
       "description": "用户端微信用户生成jwt令牌相关配置",
       "sourceType": "com.zilweney.properties.JwtProperties"
     },
     {
-      "name": "sky.jwt.user-token-name",
+      "name": "zilweney.jwt.user-token-name",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.JwtProperties"
     },
     {
-      "name": "sky.jwt.user-ttl",
+      "name": "zilweney.jwt.user-ttl",
       "type": "java.lang.Long",
       "sourceType": "com.zilweney.properties.JwtProperties"
     },
     {
-      "name": "sky.wechat.api-v3-key",
+      "name": "zilweney.wechat.api-v3-key",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.appid",
+      "name": "zilweney.wechat.appid",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.mch-serial-no",
+      "name": "zilweney.wechat.mch-serial-no",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.mchid",
+      "name": "zilweney.wechat.mchid",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.notify-url",
+      "name": "zilweney.wechat.notify-url",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.private-key-file-path",
+      "name": "zilweney.wechat.private-key-file-path",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.refund-notify-url",
+      "name": "zilweney.wechat.refund-notify-url",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.secret",
+      "name": "zilweney.wechat.secret",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     },
     {
-      "name": "sky.wechat.we-chat-pay-cert-file-path",
+      "name": "zilweney.wechat.we-chat-pay-cert-file-path",
       "type": "java.lang.String",
       "sourceType": "com.zilweney.properties.WeChatProperties"
     }

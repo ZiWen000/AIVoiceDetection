@@ -35,8 +35,6 @@ public class User implements Serializable {
     //性别 0 女 1 男
     private String sex;
 
-    //头像
-    private String avatar;
 
     //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;

@@ -43,12 +43,12 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("开始注册自定义拦截器...");
         registry.addInterceptor(jwtTokenAdminInterceptor)
                 .addPathPatterns("/admin/**")
-                .excludePathPatterns("/admin/employee/login");
+                .excludePathPatterns("/admin/admin/login");
 
         registry.addInterceptor(jwtTokenUserInterceptor)
                 .addPathPatterns("/user/**")
                 .excludePathPatterns("/user/user/login")
-                .excludePathPatterns("/user/shop/status");
+                .excludePathPatterns("/user/user/register");
     }
 
     /**
@@ -67,7 +67,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .groupName("管理端接口")
                 .apiInfo(apiInfo)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sky.controller.admin"))
+                .apis(RequestHandlerSelectors.basePackage("com.zilweney.controller.admin"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;
@@ -77,15 +77,15 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public Docket docket2() {
         log.info("准备生成用户端接口文档...");
         ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("苍穹外卖项目接口文档")
-                .version("2.0")
-                .description("苍穹外卖项目接口文档")
+                .title("AI语音识别项目接口文档")
+                .version("1.0")
+                .description("AI语音识别项目接口文档")
                 .build();
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .groupName("用户端接口")
                 .apiInfo(apiInfo)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sky.controller.user"))
+                .apis(RequestHandlerSelectors.basePackage("com.zilweney.controller.user"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;
