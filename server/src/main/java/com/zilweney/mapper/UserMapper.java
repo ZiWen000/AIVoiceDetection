@@ -26,9 +26,9 @@ public interface UserMapper {
      * @param user
      */
     @AutoFill(value = OperationType.INSERT)
-    @Insert("insert into user (name, username, sex,  password, create_time, update_time) " +
+    @Insert("insert into user (name, username, sex,  password, create_time, update_time,phone) " +
     "values "+
-    "(#{name},#{username},#{sex},#{password},#{createTime},#{updateTime})")
+    "(#{name},#{username},#{sex},#{password},#{createTime},#{updateTime},#{phone})")
     void insert(User user);
 
 //    /**

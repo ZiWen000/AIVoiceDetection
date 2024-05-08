@@ -40,7 +40,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // 对所有的接口生效
                 .allowedOrigins("http://localhost:5173") // 允许来自vue的请求
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // 允许的方法
+                .allowedMethods("GET", "POST", "PUT", "DELETE") // 允许的方法
                 .allowedHeaders("*") // 允许的头部
                 .allowCredentials(true) // 允许证书（cookies）
                 .maxAge(3600); // 预检请求的缓存时间（秒）

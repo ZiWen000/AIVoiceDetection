@@ -31,11 +31,10 @@ public interface UserService {
 
 
     /**
-     * 根据id查询
-     * @param id
+     * 根据token查询
      * @return
      */
-    User getById(Long id);
+    User getByToken();
 
     /**
      * 编辑用户信息

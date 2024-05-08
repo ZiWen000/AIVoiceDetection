@@ -13,8 +13,8 @@ public interface VoiceMapper {
      * 新增语音数据
      * @param voice
      */
-    @Insert("insert into voice (filename, create_time,  user_id) " +
-            "values (#{filename},#{createTime},#{userId})")
+    @Insert("insert into voice (filename, create_time,  user_id , algorithm) " +
+            "values (#{filename},#{createTime},#{userId},#{algorithm})")
     void insert(Voice voice);
 
     /**

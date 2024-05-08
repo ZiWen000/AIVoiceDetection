@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.zilweney.constant.MessageConstant;
 import com.zilweney.constant.PasswordConstant;
 import com.zilweney.constant.StatusConstant;
+import com.zilweney.context.BaseContext;
 import com.zilweney.dto.UserDTO;
 import com.zilweney.dto.UserLoginDTO;
 import com.zilweney.entity.User;
@@ -12,8 +13,11 @@ import com.zilweney.exception.AccountLockedException;
 import com.zilweney.exception.AccountNotFoundException;
 import com.zilweney.exception.PasswordErrorException;
 import com.zilweney.mapper.UserMapper;
+import com.zilweney.properties.JwtProperties;
 import com.zilweney.result.PageResult;
 import com.zilweney.service.UserService;
+import com.zilweney.utils.JwtUtil;
+import io.jsonwebtoken.JwtParser;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -84,6 +88,16 @@ public class UserServiceImpl implements UserService {
         userMapper.insert(user);
     }
 
+    /**
+     * 根据token查询用户信息
+     * @return
+     */
+    public User getByToken() {
+        User user = userMapper.getById(BaseContext.getCurrentId());
+        user.setPassword("****");//不让前端查看密码,增加安全性
+        return user;
+    }
+
 //    /**
 //     * 分页查询
 //     * @param employeePageQueryDTO
@@ -111,16 +125,6 @@ public class UserServiceImpl implements UserService {
 //        employeeMapper.update(employee);
 //    }
 
-    /**
-     * 根据id查询用户
-     * @param id
-     * @return
-     */
-    public User getById(Long id) {
-        User user = userMapper.getById(id);
-        user.setPassword("****");//不让前端查看密码,增加安全性
-        return user;
-    }
 
     /**
      * 编辑用户信息
@@ -129,6 +133,7 @@ public class UserServiceImpl implements UserService {
     public void update(UserDTO userDTO) {
         User user = new User();
         BeanUtils.copyProperties(userDTO,user);
+        user.setId(BaseContext.getCurrentId());
 
 //        employee.setUpdateTime(LocalDateTime.now());
 //        employee.setUpdateUser(BaseContext.getCurrentId());

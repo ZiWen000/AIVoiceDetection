@@ -106,27 +106,27 @@ public class UserController {
 
 
     /**
-     * 根据id查询用户信息
+     * 查询用户信息
      * @param id
      * @return
      */
-    @GetMapping("/{id}")
-    @ApiOperation("根据id查询用户信息")
-    public Result<User> getById(@PathVariable Long id){
-        User user = userService.getById(id);
+    @GetMapping
+    @ApiOperation("查询用户信息")
+    public Result<User> getByToken(){
+        User user = userService.getByToken();
         return Result.success(user);
     }
 
-//    /**
-//     * 编辑用户信息
-//     * @param employeeDTO
-//     * @return
-//     */
-//    @PutMapping
-//    @ApiOperation("编辑用户信息")
-//    public Result update(@RequestBody EmployeeDTO employeeDTO){
-//        log.info("编辑用户信息:{}",employeeDTO);
-//        employeeService.update(employeeDTO);
-//        return Result.success();
-//    }
+    /**
+     * 编辑用户信息
+     * @param userDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("编辑用户信息")
+    public Result update(@RequestBody UserDTO userDTO){
+        log.info("编辑用户信息:{}",userDTO);
+        userService.update(userDTO);
+        return Result.success();
+    }
 }

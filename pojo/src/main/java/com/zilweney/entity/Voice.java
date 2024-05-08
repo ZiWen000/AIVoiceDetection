@@ -37,4 +37,6 @@ public class Voice implements Serializable {
 
     //创建时间
     private LocalDateTime createTime;
+
+    private String algorithm;
 }

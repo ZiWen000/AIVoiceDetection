@@ -30,6 +30,7 @@ public class VoiceController {
      * @return
      */
     @PostMapping("/upload")
+    @ApiOperation("文件上传")
     public Result handleFileUpload(@RequestParam("file") MultipartFile file) {
         String message = "";
         try {
