@@ -9,6 +9,7 @@ import com.zilweney.entity.Voice;
 import com.zilweney.mapper.VoiceMapper;
 import com.zilweney.result.PageResult;
 import com.zilweney.service.VoiceService;
+import com.zilweney.vo.ChartVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,21 @@ public class VoiceServiceImpl implements VoiceService {
         List<Voice> records = page.getResult();
         return new PageResult(total,records);
 
+    }
+
+    /**
+     * 统计图表数据查询
+     * @return
+     */
+    public ChartVO displayQuery() {
+        ChartVO chartVO = new ChartVO();
+        chartVO.setTotal(voiceMapper.getTotal());
+        chartVO.setIsAI(voiceMapper.getIsAI());
+        chartVO.setIsCheat(voiceMapper.getIsCheat());
+        chartVO.setIsAbnormal(voiceMapper.getIsAbnormal());
+        chartVO.setDateTotal(voiceMapper.getDateTotal());
+
+        return chartVO;
     }
 
 }

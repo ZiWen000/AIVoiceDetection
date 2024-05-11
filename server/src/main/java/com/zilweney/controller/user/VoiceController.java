@@ -6,6 +6,7 @@ import com.zilweney.entity.Voice;
 import com.zilweney.result.PageResult;
 import com.zilweney.result.Result;
 import com.zilweney.service.VoiceService;
+import com.zilweney.vo.ChartVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -64,5 +65,17 @@ public class VoiceController {
         log.info("语音数据分页查询,参数为:{}",voicePageQueryDTO);
         PageResult pageResult = voiceService.pageQuery(voicePageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    /**
+     * 统计图表数据查询
+     * @return
+     */
+    @GetMapping("/display")
+    @ApiOperation("统计图表数据查询")
+    public Result<ChartVO> display(){
+        log.info("统计图表数据查询");
+        ChartVO chartVO = voiceService.displayQuery();
+        return Result.success(chartVO);
     }
 }

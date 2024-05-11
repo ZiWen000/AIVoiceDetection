@@ -76,8 +76,8 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         //对象属性拷贝
         BeanUtils.copyProperties(userDTO,user);
-        //设置密码,默认密码123456
-        user.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
+        //设置密码
+        user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         //记录当前记录的创建时间和修改时间
 //        employee.setCreateTime(LocalDateTime.now());
 //        employee.setUpdateTime(LocalDateTime.now());

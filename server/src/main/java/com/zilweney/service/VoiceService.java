@@ -3,6 +3,7 @@ package com.zilweney.service;
 import com.zilweney.dto.VoiceDTO;
 import com.zilweney.dto.VoicePageQueryDTO;
 import com.zilweney.result.PageResult;
+import com.zilweney.vo.ChartVO;
 
 public interface VoiceService {
 
@@ -18,4 +19,10 @@ public interface VoiceService {
      * @return
      */
     PageResult pageQuery(VoicePageQueryDTO voicePageQueryDTO);
+
+    /**
+     * 统计图标数据查询
+     * @return
+     */
+    ChartVO displayQuery();
 }
